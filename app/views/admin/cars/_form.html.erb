@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
           <div class="col-md-12">
-            <%= f.text_field :fuel, placeholder: "Fuel", class:"form-control" %>
+            <%= f.select(:fuel, options_for_select([["", ""], ["Diesel", "Diesel"], ["Gasoline", "Gasoline"]], :selected => @car.fuel), {}, {class:"form-control"}) %>
           </div>
         </div>
       </div>
