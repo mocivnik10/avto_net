@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AvtoNet</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+  <!-- menu bar -->
+  <div class="menu navbar navbar-default" style="margin: 0; border-radius: 0;">
+      <div class="navbar-header">
+        <%#= image_tag "logo.png", style:"height: 60px;" %>
+          <%= link_to "AVTO.net", root_path, class:"navbar-brand" %>
+      </div>
+
+
+    <div class = "collapse navbar-collapse" id = "example-navbar-collapse">
+      <ul class="navbar-custom nav navbar-nav">
+
+      </ul>
+      <ul class="navbar-custom nav navbar-nav navbar-right">
+        <li class="<%= 'active' if params[:controller] == 'welcome' %>"><%= link_to "HOME", root_path, class:"menu-title" %></li>
+        <li class="<%= 'active' if params[:controller] == 'cars' %>"><%= link_to "CARS", cars_path, class:"menu-title" %></li>
+        <li class="<%#= 'active' if params[:controller] == 'contact_us' %>"><%= link_to "CONTACT", "#", class:"menu-title" %></li>
+      </ul>
+    </div>
+  </div>
+  <!-- End menu -->
+<%= yield %>
+</div>
+
+</body>
+</html>

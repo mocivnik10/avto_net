@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AvtoNet - Admin</title>
+  <%= stylesheet_link_tag    'administration', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'administration', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+  <!-- Show flash messages -->
+  <%= render 'layouts/messages' %>
+  
+  <!-- menu bar -->
+  <div class="menu navbar navbar-inverse" style="margin: 0; border-radius: 0;">
+      <div class="navbar-header">
+        <%#= image_tag "logo.png", style:"height: 60px;" %>
+          <%= link_to "AVTO.net - ADMIN", admin_root_path, class:"navbar-brand" %>
+      </div>
+
+
+    <div class = "collapse navbar-collapse" id = "example-navbar-collapse">
+      <ul class="navbar-custom nav navbar-nav">
+
+      </ul>
+      <ul class="navbar-custom nav navbar-nav navbar-right">
+        <li class="<%= 'active' if params[:controller] == 'admin/dashboard' %>"><%= link_to "HOME", admin_root_path, class:"menu-title" %></li>
+        <li class="<%= 'active' if params[:controller] == 'admin/cars' %>"><%= link_to "CARS", admin_cars_path, class:"menu-title" %></li>
+        <li class=""><%= link_to "LOG OUT", destroy_admin_session_path, method: :delete, class:"menu-title" %></li>
+      </ul>
+    </div>
+  </div>
+  <!-- End menu -->
+<%= yield %>
+</div>
+
+</body>
+</html>

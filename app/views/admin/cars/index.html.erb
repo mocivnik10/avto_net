@@ -1,0 +1,36 @@
+<h1>Cars
+  <small>
+    <%= link_to "Add new", new_admin_car_path, class:"new_car_button", remote: true %>
+  </small>
+</h1>
+<h2>List of cars:</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Fuel</th>
+      <th>Year</th>
+      <th>Km</th>
+      <th>Price</th>
+      <th>Created at</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @cars.each do |car| %>
+        <tr>
+          <td><%= car.brand %></td>
+          <td><%= car.model %></td>
+          <td><%= car.fuel %></td>
+          <td><%= car.year %></td>
+          <td><%= car.km %> km</td>
+          <td><%= car.price %>€</td>
+          <td><%= car.created_at.strftime("%d/%b/%Y") %></td>
+          <td><%= link_to "Edit", edit_admin_car_path(car.id) %></td>
+          <td><%= link_to "Destroy", admin_car_path(car.id), method: :delete, data: {confirmable: "Are you sure?"} %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
