@@ -40,6 +40,6 @@ class Admin::CarsController < Admin::AdministrationController
   private
 
   def car_params
-    params.require(:car).permit(:brand, :price, :km, :fuel, :year, :description, :model)
+    params.require(:car).permit(:brand, :price, :km, :fuel, :year, :description, :model, :car_image)
   end
 end

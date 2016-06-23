@@ -53,3 +53,7 @@ gem 'devise'
 
 #search for "cars"
 gem 'ransack'
+
+#Upload images for cars
+gem 'paperclip'
+gem 'aws-sdk', '< 2'
