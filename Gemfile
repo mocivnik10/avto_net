@@ -50,3 +50,6 @@ end
 
 #authencticate/logIn Admin
 gem 'devise'
+
+#search for "cars"
+gem 'ransack'

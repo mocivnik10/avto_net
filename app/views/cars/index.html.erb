@@ -1,5 +1,17 @@
 <h1>CARS</h1>
 
+<div class="advanced_search_form">
+  <%= search_form_for @search, html: {class:"form-horizontal", id:"keywordSearch"} do |f| %>
+    <div class="form-group">
+      <div class="col-md-4">
+        <%= f.search_field :brand_or_model_or_fuel_or_description_cont, placeholder: "Keyword", class:"form-control" %>
+      </div>
+      <%= f.submit "Search", class:"btn btn-primary" %>
+    </div>
+  <% end %>
+  <%= link_to "Advanced search", "#", id:"advanced_search" %>
+</div>
+
 <% @cars.each do |car| %>
   <div class="car_panel">
     <h3><%= link_to "#{car.brand}, #{car.model}", car_path(car.id) %></h3>
@@ -10,3 +22,11 @@
       </ul>
   </div>
 <% end %>
+
+
+<script type="text/javascript">
+  $("#advanced_search").click(function(){
+    $("#keywordSearch").remove();
+    $(this).hide().after('<%= j render("search_form") %>');
+  })
+</script>

@@ -14,3 +14,7 @@
  *= require_self
  *= require bootstrap.min
  */
+
+.advanced_search_form {
+  padding-bottom: 30px;
+}
