@@ -1,6 +1,6 @@
 class Admin::CarsController < Admin::AdministrationController
   def index
-    @cars = Car.all
+    @cars = Car.all.order(:brand)
   end
 
   def new

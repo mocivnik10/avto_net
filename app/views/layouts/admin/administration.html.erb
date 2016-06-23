@@ -4,13 +4,14 @@
   <title>AvtoNet - Admin</title>
   <%= stylesheet_link_tag    'administration', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'administration', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.26.4/js/jquery.tablesorter.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div class="container">
   <!-- Show flash messages -->
   <%= render 'layouts/messages' %>
-  
+
   <!-- menu bar -->
   <div class="menu navbar navbar-inverse" style="margin: 0; border-radius: 0;">
       <div class="navbar-header">
