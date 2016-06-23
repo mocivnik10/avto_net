@@ -1,0 +1,42 @@
+<%= search_form_for @search, html: {class:"form-horizontal"} do |f| %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <div class="col-md-12">
+        <%= f.label :id_eq, "Brand:" %>
+        <%= f.collection_select(:id_eq, Car.all, :id, "brand", {include_blank:true}, {class:"form-control search_for_model"}) %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12">
+        <%= f.label :fuel_eq, "Fuel:" %>
+        <%= f.select :fuel_eq, ["", "Diesel", "Gasoline"], {}, {class:"form-control"} %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <div class="col-md-6">
+        <%= f.label :km_gteq, "Km from:" %>
+        <%= f.search_field :km_gteq, class:"form-control" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.label :km_lteq, "Km to:" %>
+        <%= f.search_field :km_lteq, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-6">
+          <%= f.label :price_gteq, "Price from:" %>
+          <%= f.search_field :price_gteq, class:"form-control" %>
+        </div>
+        <div class="col-md-6">
+          <%= f.label :price_lteq, "Price to:" %>
+          <%= f.search_field :price_lteq, class:"form-control" %>
+        </div>
+    </div>
+  </div>
+</div>
+
+  <%= f.submit "Search", class:"btn btn-primary pull-right" %>
+<% end %>
