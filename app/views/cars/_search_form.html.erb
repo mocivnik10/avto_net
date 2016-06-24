@@ -3,8 +3,9 @@
   <div class="col-md-6">
     <div class="form-group">
       <div class="col-md-12">
-        <%= f.label :id_eq, "Brand:" %>
-        <%= f.collection_select(:id_eq, Car.all, :id, "brand", {include_blank:true}, {class:"form-control search_for_model"}) %>
+        <%= f.label :brand_eq, "Brand:" %>
+        <%#= f.collection_select(:id_eq, Car.all, :id, "brand", {include_blank:true}, {class:"form-control search_for_model"}) %>
+        <%= f.select :brand_eq, @brand.uniq, {}, {class: "form-control"} %>
       </div>
     </div>
     <div class="form-group">

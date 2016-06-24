@@ -1,32 +1,66 @@
-<h1>CARS</h1>
+<h1 class="text-center">CARS</h1>
 
 <div class="advanced_search_form">
   <%= search_form_for @search, html: {class:"form-horizontal", id:"keywordSearch"} do |f| %>
     <div class="form-group">
       <div class="col-md-4">
-        <%= f.search_field :brand_or_model_or_fuel_or_description_cont, placeholder: "Keyword", class:"form-control" %>
+        <%= f.search_field :brand_or_model_or_fuel_or_description_cont, placeholder: "Search keyword", class:"form-control" %>
       </div>
       <%= f.submit "Search", class:"btn btn-primary" %>
     </div>
   <% end %>
-  <%= link_to "Advanced search", "#", id:"advanced_search" %>
+  <h4><%= link_to "Advanced search", "#", id:"advanced_search" %></h4>
+</div>
+
+<div class="sort_links">
+  <ul class="list-inline">
+    <li><h3>Sort by:</h3></li>
+    <li>
+      <%= sort_link(@search, :brand) do %>
+        <strong>Brand</strong>
+      <% end %>
+    </li>
+    <li>|</li>
+    <li>
+      <%= sort_link(@search, :price) do %>
+        <strong>Price</strong>
+      <% end %>
+    </li>
+  </ul>
 </div>
 
 <% @cars.each do |car| %>
-  <div class="car_panel">
-    <h3><%= link_to "#{car.brand}, #{car.model}", car_path(car.id) %></h3>
-      <ul>
-        <li>Year: <%= car.year %></li>
-        <li>Kilometers: <%= car.km %> km</li>
-        <li>Fuel: <%= car.fuel %></li>
-      </ul>
-  </div>
+  <%= link_to car_path(car.id) do %>
+    <div class="car_panel">
+        <div class="row">
+          <div class="col-md-4">
+            <%= image_tag car.car_image.url(:medium), class:"car_image_size thumbnail" %>
+          </div>
+          <div class="col-md-4">
+            <h3><%= link_to "#{car.brand}, #{car.model}", car_path(car.id) %></h3>
+                <ul>
+                  <li>Year: <%= car.year %></li>
+                  <li>Kilometers: <%= car.km %> km</li>
+                  <li>Fuel: <%= car.fuel %></li>
+                </ul>
+          </div>
+          <div class="col-md-4">
+            <div class="index_car_price text-center">
+              <%= car.price %> €
+            </div>
+          </div>
+        </div>
+    </div>
+  <% end %>
 <% end %>
 
+<div class="space_on_bottom">
+
+</div>
 
 <script type="text/javascript">
   $("#advanced_search").click(function(){
     $("#keywordSearch").remove();
     $(this).hide().after('<%= j render("search_form") %>');
-  })
+  });
 </script>

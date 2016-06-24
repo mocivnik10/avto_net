@@ -15,6 +15,47 @@
  *= require bootstrap.min
  */
 
+body {
+  background-image: url('wallpaper.jpg');
+  background-size: cover;
+}
+.container {
+  color: white;
+}
 .advanced_search_form {
-  padding-bottom: 30px;
+  margin: 50px 0 50px 0;
+}
+.menu.navbar.navbar-default {
+  margin-top: 20px;
+}
+.car_panel {
+  border: 1px solid #337AB7;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+.view_car_button.btn.btn-primary {
+  display: none;
+}
+.car_panel:hover {
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+}
+.car_image_size {
+  height: 200px;
+  width: 300px;
+}
+.index_car_price {
+  margin-top: 125px;
+  border: 1px dashed;
+  padding: 25px;
+}
+.space_on_bottom {
+  margin: 80px 0 80px 0;
+}
+.sort_links {
+    background: rgba(0, 0, 0, 0.7);
+    width: 25%;
+    border-radius: 10px;
+    padding: 0 0 1px 28px;
+    margin-bottom: 10px;
 }
