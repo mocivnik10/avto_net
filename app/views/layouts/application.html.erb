@@ -23,7 +23,7 @@
       <ul class="navbar-custom nav navbar-nav navbar-right">
         <li class="<%= 'active' if params[:controller] == 'welcome' %>"><%= link_to "HOME", root_path, class:"menu-title" %></li>
         <li class="<%= 'active' if params[:controller] == 'cars' %>"><%= link_to "CARS", cars_path, class:"menu-title" %></li>
-        <li class="<%#= 'active' if params[:controller] == 'contact_us' %>"><%= link_to "CONTACT", "#", class:"menu-title" %></li>
+        <li class="<%= 'active' if params[:controller] == 'contact_us' %>"><%= link_to "CONTACT", contact_us_path, class:"menu-title" %></li>
       </ul>
     </div>
   </div>

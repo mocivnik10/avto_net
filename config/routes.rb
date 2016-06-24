@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   end
 
   resources :cars, only: [:index, :show]
-
+  resources :contact_us, only: [:index]
 end
