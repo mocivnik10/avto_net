@@ -1,6 +1,24 @@
-<h1><%= @car.brand %>, <%= @car.model %></h1>
-<p>
-  <h3>Description:</h3>
-  <%= @car.description %>
-</p>
-<%= link_to "Back", cars_path %>
+<h1><%= @car.brand %>, <%= @car.model %> <small><%= link_to "Back", cars_path %></small></h1>
+<div class="cars_show_card">
+  <div class="row" style="position: relative;">
+    <div class="col-md-8">
+      <%= image_tag @car.car_image.url, class:"show_car_image" %>
+    </div>
+    <div class="col-md-4">
+      <h3>Specifications:</h3>
+      <ul>
+        <li>Year: <%= @car.year %></li>
+        <li>Fuel: <%= @car.fuel %></li>
+        <li>Kilometers: <%= @car.km %> km</li>
+      </ul>
+    </div>
+    <div class="show_car_price">
+      <%= @car.price %> €
+    </div>
+  </div>
+
+  <p>
+    <h3>Description:</h3>
+    <%= simple_format(@car.description) %>
+  </p>
+</div>
